@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #0A0A0A;
+}
+a, p, h1, h2, h3, h4, h5, h6{
+    
+    color: #fff;
+}
+a{
+    text-decoration: none;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    margin: 10px;
+}
+.logo{
+    width: 200px;
+}
+.link ul li{
+    display: inline-block;
+    padding: 5px;
+    font-size: 2.5vh;
+}
+.login{
+    width: 200px;
+}
+.login ul li{
+    display: inline-block;
+    padding: 5px;
+    font-size: 2.5vh;
+}
+.slider{
+    position: relative;
+    width: 100%;
+}
+.slider img{
+    width: 100%;
+}
+.slider .content{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.slider .content h2, h3{
+    background: transparent;
+    color: #fff;
+    font-weight: 800;
+}
+.slider .content h2{
+    font-size: 6vh;
+}
+.slider .content h3{
+    font-size: 4.5vh;
+}
+.slider .content button{
+    margin-top: 15px;
+    border: none;
+    outline: none;
+}
+.slider .content button a{
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 7px;
+    background-color: crimson;
+}
+.experiences{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.experiences h2{
+    font-size: 6vh;
+}
+.experiences h3{
+    font-size: 4.5vh;
+}
+.experiences .boxes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.experiences .boxes .box{
+    width: 350px;
+    height: 400px;
+    margin: 45px;
+}
+.experiences .boxes .box a{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.experiences .boxes .box img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 7px 7px 0 0;
+}
+.box h4{
+    margin-top: 10px;
+    font-size: 3vh;
+}
+.box p{
+    margin-top: 10px;
+    font-size: 2vh;
+}
+.box .buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 5px;
+}
+.box .buttons button{
+    width: 45%;
+    height: 35px;
+    color: crimson;
+    border: 1px solid crimson;
+    margin: 5px;
+    border-radius: 7px;
+}
+.box .buttons button:hover{
+    background-color: crimson;
+    color: white;
+    transition: 600ms;
+}
+.p1{
+    width: 80%;
+}
