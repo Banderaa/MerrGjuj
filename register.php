@@ -1,35 +1,14 @@
 <?php
 require_once "includes/header.php";
-require "includes/db.php";
+require_once "classes/Users.php";
 
 if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  if (empty($username) || empty($email) || empty($password)) {
-    if (empty($username)) {
-      echo '<script> alert("Username is empty!")</script>';
-    }
-
-    if (empty($password)) {
-      echo '<script> alert("Password is empty!")</script>';
-    }
-
-    if (empty($email)) {
-      echo '<script> alert("Email is empty!")</script>';
-    }
-  } else {
-    $encrypted_password = md5($password);
-    $sql = "INSERT INTO users (`username`, `email`, `password`, `role_id`) VALUES ('$username', '$email', '$encrypted_password', '2')";
-    $result = $conn->query($sql);
-    if ($result) {
-      header("Location: login.php");
-      exit();
-    } else {
-      echo '<script> alert("Error while registering, please try again!")</script>';
-    }
-  }
+  $register = new Users();
+  $register->attemptRegister($username, $email, $password);
 }
 ?>
 
