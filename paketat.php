@@ -16,7 +16,7 @@ $paketat = $main->getPaketat();
     foreach ($paketat as $paketa) {
   ?>
     <div class="box">
-      <a href="#">
+      <a href="detajet-e-paketes.php?id=<?php echo $paketa['id'];?>">
         <img src="<?php echo $paketa['image'];?>" alt="" />
         <h4><?php echo $paketa['title'];?></h4>
         <p><?php echo $paketa['content'];?></p>

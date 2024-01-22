@@ -40,7 +40,7 @@ $banerat = $main->getBanerat();
     foreach ($infos as $info) {
   ?>
     <div class="box">
-      <a href="#">
+      <a href="detajet-e-paketes.php?id=<?php echo $info['id'];?>">
         <img src="<?php echo $info['image'];?>" alt="" />
         <h4><?php echo $info['title'];?></h4>
         <p><?php echo $info['content'];?></p>
