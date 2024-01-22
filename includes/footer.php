@@ -19,7 +19,8 @@
           </li>
         </ul>
       </div>
-      <div class="links">
+
+      <div class="links responsive_links">
         <ul>
           <li><a href="index.html">Home</a></li>
 
