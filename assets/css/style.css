@@ -569,7 +569,7 @@ footer .links ul li {
 }
 
 .burger_content{
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 300px;
   z-index: 9999;
@@ -603,7 +603,6 @@ footer .links ul li {
   .mian_detajet{
     flex-wrap: wrap;
   }
-  
   header .link{
     display: none;
   }
@@ -641,6 +640,9 @@ footer .links ul li {
 }
 /* telefon */
 @media only screen and (max-width: 500px) {
+  .slide_header{
+    max-height: 40vh;
+  }
   .mian_detajet{
     flex-wrap: wrap;
   }

@@ -99,8 +99,23 @@ session_start();
     </div>
 
     <?php
-    if (isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_id'])) {
 
+    ?>
+      <div class="burger_login">
+        <ul>
+          <li>
+            <a href="login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
+          </li>
+          <li>
+            <a href="register.php"><i class="fa-solid fa-user-plus"></i> Register</a>
+          </li>
+        </ul>
+      </div>
+
+
+    <?php
+    } else {
     ?>
       <div class="burger_login">
         <ul>
@@ -113,34 +128,17 @@ session_start();
         </ul>
       </div>
     <?php
-    } else {
-    ?>
-
-      <div class="burger_login">
-        <ul>
-          <li>
-            <a href="login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
-          </li>
-          <li>
-            <a href="register.php"><i class="fa-solid fa-user-plus"></i> Register</a>
-          </li>
-        </ul>
-      </div>
-    <?php
     }
     ?>
-
   </div>
 
   <script>
     function toggleBurger() {
       var burgerContent = document.querySelector('.burger_content');
 
-      // Toggle the display property and visibility with animation
       if (burgerContent.style.right === '0px') {
         burgerContent.style.right = '-300px';
 
-        // Wait for the transition to end before changing the display property
         burgerContent.addEventListener('transitionend', function onTransitionEnd() {
           burgerContent.style.display = 'none';
           burgerContent.removeEventListener('transitionend', onTransitionEnd);
@@ -151,21 +149,34 @@ session_start();
       }
     }
 
-    // Close the burger menu when clicking outside of it
     document.addEventListener('click', function(event) {
       var burgerContent = document.querySelector('.burger_content');
       var burgerButton = document.querySelector('.burger');
 
-      if (!burgerContent.contains(event.target) && !burgerButton.contains(event.target)) {
+      if (
+        !burgerContent.contains(event.target) &&
+        !burgerButton.contains(event.target)
+      ) {
         if (burgerContent.style.right === '0px') {
           burgerContent.style.right = '-300px';
 
-          // Wait for the transition to end before changing the display property
           burgerContent.addEventListener('transitionend', function onTransitionEnd() {
             burgerContent.style.display = 'none';
             burgerContent.removeEventListener('transitionend', onTransitionEnd);
           });
         }
+      }
+    });
+
+    window.addEventListener('scroll', function() {
+      var burgerContent = document.querySelector('.burger_content');
+      if (burgerContent.style.right === '0px') {
+        burgerContent.style.right = '-300px';
+
+        burgerContent.addEventListener('transitionend', function onTransitionEnd() {
+          burgerContent.style.display = 'none';
+          burgerContent.removeEventListener('transitionend', onTransitionEnd);
+        });
       }
     });
   </script>

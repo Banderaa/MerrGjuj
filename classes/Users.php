@@ -23,7 +23,7 @@ class Users
             }
         } else {
             $encrypted_password = md5($password);
-            $sql = "SELECT id, username FROM users WHERE (username = '$username' OR email = '$username') AND password = '$encrypted_password'";
+            $sql = "SELECT id, username, role_id FROM users WHERE (username = '$username' OR email = '$username') AND password = '$encrypted_password'";
             $result = $this->conn->query($sql);
 
             if ($result) {
@@ -31,9 +31,17 @@ class Users
                     $row = $result->fetch_assoc();
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['username'] = $row['username'];
+                    $_SESSION['role_id'] = $row['role_id'];
 
-                    header("Location: index.php");
-                    exit();
+                    if($row['role_id'] == 1){
+                        echo "<script>window.location.href = 'admin/';</script>";
+                        exit();
+                    }
+                    if($row['role_id'] == 2){
+                        echo "<script>window.location.href = 'index.php';</script>";
+                        exit();
+                    }
+                    
                 } else {
                     echo '<script> alert("Invalid username or password!")</script>';
                 }
@@ -72,6 +80,7 @@ class Users
 
     public function logout()
     {
+        session_start();
         $_SESSION = array();
         session_destroy();
         header("Location: ../index.php");

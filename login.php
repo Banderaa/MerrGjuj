@@ -1,5 +1,6 @@
 <?php
 require_once "includes/header.php";
+
 require_once "classes/Users.php";
 
 if (isset($_POST['submit'])) {
