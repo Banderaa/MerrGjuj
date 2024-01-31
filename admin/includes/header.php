@@ -23,23 +23,21 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] == 2) {
 
 <body>
 
-    <div class="sidebar">
+<div class="sidebar">
         <div class="logo">
-            <img src="../assets/images/Logo.png" alt="">
+            <img src="../assets/images/logo.png" alt="">
         </div>
         <ul>
             <li>
-                <a href="index.php">Home</a>
+                <a href="index.php">Paketat</a>
             </li>
             <li>
-                <a href="about-us.php">About us</a>
+                <a href="banner.php">Banner</a>
             </li>
             <li>
                 <a href="contact-us.php">Contact us</a>
             </li>
-            <li>
-                <a href="paketat.php">Paketat</a>
-            </li>
+           
         </ul>
     </div>
 
@@ -55,7 +53,12 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] == 2) {
                             <a href="#"><i class="fa-solid fa-user"></i> <?php echo $_SESSION['username']; ?></a>
                         </li>
                         <li>
-                            <a href="../includes/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                            <a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                        </li>
+                        <li>
+                           <div class="burger-menu">
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -64,3 +67,18 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] == 2) {
             ?>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.querySelector('.sidebar');
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    burgerMenu.addEventListener('click', function () {
+        sidebar.classList.toggle('active');
+    });
+});
+
+    </script>
+<div class="main">
+    <div class="sidebar_block">
+    </div>
+    <div class="content">

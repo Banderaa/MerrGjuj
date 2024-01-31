@@ -1,8 +1,8 @@
 <?php
 require_once "includes/header.php";
-require_once 'classes/Main.php';
+require_once 'classes/Paketat.php';
 
-$main = new Main();
+$main = new Paketat();
 $paketat = $main->getPaketat();
 ?>
 
