@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2024 at 11:07 PM
+-- Generation Time: Jan 31, 2024 at 09:40 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -63,6 +63,27 @@ INSERT INTO `banners` (`id`, `image`, `title`, `subtitle`) VALUES
 (1, 'assets/images/banner.jpg', 'The GunStore', 'MerrGjuj'),
 (2, 'assets/images/banner_2.jpg', 'The GunStore', 'MerrGjuj'),
 (3, 'assets/images/special.jpg', 'The GunStore', 'MerrGjuj');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `id` int(11) NOT NULL,
+  `name` varchar(55) DEFAULT NULL,
+  `surname` varchar(55) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `name`, `surname`, `email`, `description`) VALUES
+(1, 'Filan', 'Fisteku', 'filan@gmail.com', 'filan filani fisteku');
 
 -- --------------------------------------------------------
 
@@ -148,7 +169,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role_id`) VALUES
 (1, 'bandera', 'isa@gmail.com', '0a1c6944cb66d02ccefac35620ce2e51', 2),
 (2, 'test', 'test@test.com', 'c4ca4238a0b923820dcc509a6f75849b', 2),
-(3, 'nadi', 'nadi@nadi.com', 'c4ca4238a0b923820dcc509a6f75849b', 2);
+(3, 'nadi', 'nadi@nadi.com', 'c4ca4238a0b923820dcc509a6f75849b', 1);
 
 --
 -- Indexes for dumped tables
@@ -165,6 +186,12 @@ ALTER TABLE `about`
 -- Indexes for table `banners`
 --
 ALTER TABLE `banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -208,6 +235,12 @@ ALTER TABLE `about`
 --
 ALTER TABLE `banners`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `komentet`

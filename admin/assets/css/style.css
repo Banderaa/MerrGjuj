@@ -99,8 +99,8 @@ table {
   }
 
   th {
-    background-color: rgba(237, 190, 166, 0.951);
-    color: #371D10;
+    background-color: #b40909;
+    color: #fff;
   }
 
   tbody tr:nth-child(even) {
@@ -136,7 +136,7 @@ table {
   .btn_submit{
     padding: 8px 15px;
     font-size: 2.5vh;
-    background-color: rgba(237, 190, 166, 0.951);
+    background-color: #b40909;
     border-radius: 10px;
     border: none;
     outline: none;

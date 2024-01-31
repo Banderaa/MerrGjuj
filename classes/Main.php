@@ -113,4 +113,40 @@ class Main
 
         return $result;
     }
+
+    public function getContacts() {
+        $sql = "SELECT * FROM contact_us";
+        $result = $this->conn->query($sql);
+
+        if ($result) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+    public function getContactsById($id) {
+        $sql = "SELECT * FROM contact_us WHERE id = '$id'";
+        $result = $this->conn->query($sql);
+
+        if ($result) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+    public function contactUsSubmit($name, $lastname, $email, $descripton){
+        $name = $this->conn->real_escape_string($name);
+        $lastname = $this->conn->real_escape_string($lastname);
+        $email = $this->conn->real_escape_string($email);
+        $descripton = $this->conn->real_escape_string($descripton);
+    
+        $query = "INSERT INTO contact_us (name, surname, email, description) VALUES ('$name', '$lastname', '$email', '$descripton')";
+        $result = $this->conn->query($query);
+    
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
