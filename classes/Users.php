@@ -66,14 +66,20 @@ class Users
                 echo '<script> alert("Email is empty!")</script>';
             }
         } else {
-            $encrypted_password = md5($password);
-            $sql = "INSERT INTO users (`username`, `email`, `password`, `role_id`) VALUES ('$username', '$email', '$encrypted_password', '2')";
-            $result = $this->conn->query($sql);
-            if ($result) {
-                header("Location: login.php");
-                exit();
-            } else {
-                echo '<script> alert("Error while registering, please try again!")</script>';
+            $check_user = "SELECT * FROM users WHERE username = '$username'";
+            $user = $this->conn->query($check_user);
+            if($user->num_rows > 0){
+                echo '<script> alert("Username already exist!")</script>';
+            }else{
+                $encrypted_password = md5($password);
+                $sql = "INSERT INTO users (`username`, `email`, `password`, `role_id`) VALUES ('$username', '$email', '$encrypted_password', '2')";
+                $result = $this->conn->query($sql);
+                if ($result) {
+                    echo '<script>window.location.href = "login.php";</script>';
+                    exit();
+                } else {
+                    echo '<script> alert("Error while registering, please try again!")</script>';
+                }
             }
         }
     }

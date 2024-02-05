@@ -25,7 +25,9 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] == 2) {
 
 <div class="sidebar">
         <div class="logo">
-            <img src="../assets/images/logo.png" alt="">
+            <a href="../">
+                <img src="../assets/images/logo.png" alt="">
+            </a>
         </div>
         <ul>
             <li>
@@ -53,7 +55,7 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] == 2) {
                             <a href="#"><i class="fa-solid fa-user"></i> <?php echo $_SESSION['username']; ?></a>
                         </li>
                         <li>
-                            <a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                            <a href="../includes/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                         </li>
                         <li>
                            <div class="burger-menu">
